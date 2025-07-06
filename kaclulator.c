@@ -1,43 +1,40 @@
 #include<stdio.h>
 
-
 double sum();
 double minus();
 double product();
 double division();
 double exponent();
 
-
 int main(){
-    int inp;
+    int input;
     printf("select the function you want to perform\n1.SUM\n2.SUBSTRACTION\n3.MULTIPLICATION\n4.DIVISION\n5.EXPONENTIATION\n");
-    scanf("%d", &inp);
-    if (inp == 1)
+    scanf("%d", &input);
+    switch (input)
     {
-        sum();
+    case 1:
+       sum();
+        break;
+    case 2:
+       minus();
+        break;
+    case 3:
+       product();
+        break;
+    case 4:
+       division();
+        break;
+    case 5:
+       exponent();
+        break;            
+    default:
+       printf("Invalid choice. Please select 1, 2, 3, or 4 ect.\n");
+       return -1;
     }
-    else if (inp == 2)
-    {
-        minus();
-    }
-    else if (inp == 3)
-    {
-        product();
-    }
-     else if (inp == 4)
-    {
-        division();
-    }
-     else if (inp == 5)
-    {
-       // expo();
-    }
-    
-    else{
-        printf("INVALID INPUT");
-    } 
     return 0;
 }
+
+//SUM FUNCTION
 double sum(){
     double added = 0, dig ;
     printf("Enter the values to be added \n");
@@ -54,6 +51,8 @@ double sum(){
     
     return added;
 }
+
+// SUBTRACTION FUNCTION
 double minus(){
     double a, b, sub; 
     printf("substraction may commence now enter values \n");
@@ -62,6 +61,8 @@ double minus(){
     sub = a - b;
     printf("%lf - %lf = %lf",a,b,sub);
 }
+
+// PRODUCT FUNCTION
 double product(){
     double base = 1, mul ;
     printf("Enter the values to be multiplied \n");
@@ -79,6 +80,8 @@ double product(){
     
     return base;
 }
+
+// DIVIDE FUNCTION
 double division(){
 double div, dig, Q;
 printf("Enter value to be divided\nand then the value to divide with\n");
@@ -87,6 +90,8 @@ Q = div / dig;
 printf("%lf / %lf = %lf", div, dig,Q);
 return Q;
 }
+
+// EXPONENT OR POWER FUNCTION
 double exponent(){
     return 0;
 }
