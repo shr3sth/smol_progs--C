@@ -40,14 +40,14 @@ double sum(){
     printf("Enter the values to be added \n");
     for (int i = 0; i <= 11; i++)
     {
-        scanf("%lf",&dig);
+        scanf("%lf\n",&dig);
         added = added + dig;
         if (dig == 0)
         {
            break;
         }
     }
-    printf("%lf", added);
+    printf("%lf\n", added);
     
     return added;
 }
@@ -59,7 +59,7 @@ double minus(){
     scanf("%lf", &a);
     scanf("%lf", &b);
     sub = a - b;
-    printf("%lf - %lf = %lf",a,b,sub);
+    printf("%lf - %lf = %lf\n",a,b,sub);
 }
 
 // PRODUCT FUNCTION
@@ -68,7 +68,7 @@ double product(){
     printf("Enter the values to be multiplied \n");
     for (int i = 0; i <= 11; i++)
     {
-        scanf("%lf", &mul);
+        scanf("%lf\n", &mul);
         if (mul == 0)
         {
             break;
@@ -76,7 +76,7 @@ double product(){
         else{
         base = (base * mul);}
     }
-    printf("%lf", base);
+    printf("%lf\n", base);
     
     return base;
 }
@@ -85,9 +85,9 @@ double product(){
 double division(){
 double div, dig, Q;
 printf("Enter value to be divided\nand then the value to divide with\n");
-scanf("%lf %lf", &div, &dig);
+scanf("%lf %lf\n", &div, &dig);
 Q = div / dig;
-printf("%lf / %lf = %lf", div, dig,Q);
+printf("%lf / %lf = %lf\n", div, dig,Q);
 return Q;
 }
 
@@ -95,3 +95,4 @@ return Q;
 double exponent(){
     return 0;
 }
+
