@@ -1,4 +1,5 @@
-#include<stdio.h>
+#include <stdio.h>
+#include <math.h>
 
 double sum();
 double minus();
@@ -6,92 +7,148 @@ double product();
 double division();
 double exponent();
 
-int main(){
+int main()
+{
     int input;
-    printf("select the function you want to perform\n1.SUM\n2.SUBSTRACTION\n3.MULTIPLICATION\n4.DIVISION\n5.EXPONENTIATION\n");
+
+    printf("=== KAKLULATOR ===\n");
+    printf("1. Addition\n");
+    printf("2. Subtraction\n");
+    printf("3. Multiplication\n");
+    printf("4. Division\n");
+    printf("5. Exponentiation\n");
+    printf("Select operation: ");
+
     scanf("%d", &input);
+
     switch (input)
     {
     case 1:
-       sum();
+        sum();
         break;
+
     case 2:
-       minus();
+        minus();
         break;
+
     case 3:
-       product();
+        product();
         break;
+
     case 4:
-       division();
+        division();
         break;
+
     case 5:
-       exponent();
-        break;            
+        exponent();
+        break;
+
     default:
-       printf("Invalid choice. Please select 1, 2, 3, or 4 ect.\n");
-       return -1;
+        printf("Invalid choice.\n");
     }
+
     return 0;
 }
 
-//SUM FUNCTION
-double sum(){
-    double added = 0, dig ;
-    printf("Enter the values to be added \n");
-    for (int i = 0; i <= 11; i++)
+// ADDITION
+double sum()
+{
+    int n;
+    double num, total = 0;
+
+    printf("How many numbers do you want to add? ");
+    scanf("%d", &n);
+
+    for (int i = 1; i <= n; i++)
     {
-        scanf("%lf\n",&dig);
-        added = added + dig;
-        if (dig == 0)
-        {
-           break;
-        }
+        printf("Enter number %d: ", i);
+        scanf("%lf", &num);
+        total += num;
     }
-    printf("%lf\n", added);
-    
-    return added;
+
+    printf("Result = %.2lf\n", total);
+    return total;
 }
 
-// SUBTRACTION FUNCTION
-double minus(){
-    double a, b, sub; 
-    printf("substraction may commence now enter values \n");
+// SUBTRACTION
+double minus()
+{
+    double a, b, result;
+
+    printf("Enter first number: ");
     scanf("%lf", &a);
+
+    printf("Enter second number: ");
     scanf("%lf", &b);
-    sub = a - b;
-    printf("%lf - %lf = %lf\n",a,b,sub);
+
+    result = a - b;
+
+    printf("%.2lf - %.2lf = %.2lf\n", a, b, result);
+
+    return result;
 }
 
-// PRODUCT FUNCTION
-double product(){
-    double base = 1, mul ;
-    printf("Enter the values to be multiplied \n");
-    for (int i = 0; i <= 11; i++)
+// MULTIPLICATION
+double product()
+{
+    int n;
+    double num, result = 1;
+
+    printf("How many numbers do you want to multiply? ");
+    scanf("%d", &n);
+
+    for (int i = 1; i <= n; i++)
     {
-        scanf("%lf\n", &mul);
-        if (mul == 0)
-        {
-            break;
-        }
-        else{
-        base = (base * mul);}
+        printf("Enter number %d: ", i);
+        scanf("%lf", &num);
+        result *= num;
     }
-    printf("%lf\n", base);
-    
-    return base;
+
+    printf("Result = %.2lf\n", result);
+
+    return result;
 }
 
-// DIVIDE FUNCTION
-double division(){
-double div, dig, Q;
-printf("Enter value to be divided\nand then the value to divide with\n");
-scanf("%lf %lf\n", &div, &dig);
-Q = div / dig;
-printf("%lf / %lf = %lf\n", div, dig,Q);
-return Q;
+// DIVISION
+double division()
+{
+    double dividend, divisor, result;
+
+    printf("Enter dividend: ");
+    scanf("%lf", &dividend);
+
+    printf("Enter divisor: ");
+    scanf("%lf", &divisor);
+
+    if (divisor == 0)
+    {
+        printf("Error: Division by zero is not allowed.\n");
+        return 0;
+    }
+
+    result = dividend / divisor;
+
+    printf("%.2lf / %.2lf = %.2lf\n",
+           dividend, divisor, result);
+
+    return result;
 }
 
-// EXPONENT OR POWER FUNCTION
-double exponent(){
-    return 0;
+// EXPONENTIATION
+double exponent()
+{
+    double base, power, result;
+
+    printf("Enter base: ");
+    scanf("%lf", &base);
+
+    printf("Enter exponent: ");
+    scanf("%lf", &power);
+
+    result = pow(base, power);
+
+    printf("%.2lf ^ %.2lf = %.2lf\n",
+           base, power, result);
+
+    return result;
 }
